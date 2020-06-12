@@ -7,7 +7,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @post.image %>
+  <%= link_to @post.image.url do %>
+    <%= image_tag(@post.image.url(:screenshot), id: 'image', alt: 'screenshot') %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

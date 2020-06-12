@@ -1,4 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  require 'streamio-ffmpeg'
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -29,10 +30,27 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  version :screenshot do
+    process :screenshot
+    def full_filename (for_file = model.logo.file)
+      "screenshot.jpg"
+    end
+  end
+
+  def screenshot
+    tmpfile = File.join(File.dirname(current_path), "tmpfile")
+
+    File.rename(current_path, tmpfile)
+
+    movie = FFMPEG::Movie.new(tmpfile)
+    movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width)
+    File.rename(current_path + ".jpg", current_path)
+
+    File.delete(tmpfile)
+  end
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
