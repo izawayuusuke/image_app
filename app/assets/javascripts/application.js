@@ -55,12 +55,12 @@ $(document).on("turbolinks:load", function () {
       $.each(images, function (index, image) {
         image.attr("data-image", index);
         preview2.append(image);
-        dropzone2.css({
-          width: `calc(100% - (135px * ${images.length - 5}))`,
+        dropzone_box.css({
+          width: `calc(100% - (20% * ${images.length - 5}))`,
         });
       });
       if (images.length == 9) {
-        dropzone2.find("p").replaceWith('<i class="fa fa-camera"></i>');
+        dropzone2.find("p").replaceWith('<i class="fa fa-camera fa-2x"></i>');
       }
     } else {
       $("#preview").empty();
@@ -68,12 +68,12 @@ $(document).on("turbolinks:load", function () {
         image.attr("data-image", index);
         preview.append(image);
       });
-      dropzone.css({
-        width: `calc(100% - (135px * ${images.length}))`,
+      dropzone_box.css({
+        width: `calc(100% - (20% * ${images.length}))`,
       });
     }
     if (images.length == 4) {
-      dropzone.find("p").replaceWith('<i class="fa fa-camera"></i>');
+      dropzone.find("p").replaceWith('<i class="fa fa-camera fa-2x"></i>');
     }
     if (images.length == 10) {
       dropzone2.css({
@@ -120,14 +120,14 @@ $(document).on("turbolinks:load", function () {
         image.attr("data-image", index);
         preview2.append(image);
       });
-      dropzone2.css({
-        width: `calc(100% - (135px * ${images.length - 5}))`,
+      dropzone_box.css({
+        width: `calc(100% - (20% * ${images.length - 5}))`,
       });
       if (images.length == 9) {
-        dropzone2.find("p").replaceWith('<i class="fa fa-camera"></i>');
+        dropzone2.find("p").replaceWith('<i class="fa fa-camera fa-2x"></i>');
       }
       if (images.length == 8) {
-        dropzone2.find("i").replaceWith("<p>ファイルをアップロード</p>");
+        dropzone2.find("i").replaceWith('<i class="fa fa-camera fa-2x"></i>');
       }
     } else {
       dropzone.css({
@@ -137,8 +137,8 @@ $(document).on("turbolinks:load", function () {
         image.attr("data-image", index);
         preview.append(image);
       });
-      dropzone.css({
-        width: `calc(100% - (135px * ${images.length}))`,
+      dropzone_box.css({
+        width: `calc(100% - (20% * ${images.length}))`,
       });
     }
     if (images.length == 4) {
@@ -147,7 +147,7 @@ $(document).on("turbolinks:load", function () {
       });
     }
     if (images.length == 3) {
-      dropzone.find("i").replaceWith("<p>ファイルをアップロード</p>");
+      dropzone.find("i").replaceWith('<i class="fa fa-camera fa-2x"></i>');
     }
   });
 });

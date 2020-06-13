@@ -26,24 +26,18 @@
           <div class="input_area">
             <%= image.file_field :image, multiple: true, name: "post_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0, accept: "image/*, video/*" %>
           </div>
-          <p>ここをクリックしてください</p>
+          <p><i class="fa fa-camera fa-2x"></i></p>
         <% end %>
       </div>
+
       <div id="preview2"></div>
-      <div class="dropzone-area2">
+      <div class="dropzone-area2" style="display: none;">
         <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-        <p>ここをクリックしてください</p>
+        <p><i class="fa fa-camera fa-2x"></i></p>
         <% end %>
       </div>
     </div>
   <% end %>
-
-<!--
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, accept: 'image/*, video/*' %>
-  </div>
--->
 
   <div class="actions">
     <%= form.submit %>

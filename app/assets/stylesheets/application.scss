@@ -17,11 +17,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
 .img_view {
   width: 20%;
   float: left;
@@ -36,10 +31,17 @@
   max-width: 400px;
   height: 300px;
 }
-.dropzone-container {
-  height: 200px;
-  background: gray;
-}
 .upload-image {
   display: none;
+}
+.dropzone-box {
+  text-align: center;
+  border: 1px solid black;
+  p,
+  .fa {
+    line-height: 200px;
+  }
+}
+.dropzone-box {
+  width: 100%;
 }
