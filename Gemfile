@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave'
 gem 'streamio-ffmpeg'
+gem 'jquery-rails'
+gem 'bootstrap'
+gem 'font-awesome-sass'

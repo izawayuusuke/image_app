@@ -5,10 +5,17 @@
   <%= @post.title %>
 </p>
 
+<h2 style="text-align: center; color: red;">Image</h2>
+<!--
+  link_to @post.image.url do
+    image_tag(@post.image.url(:screenshot), id: 'image', alt: 'screenshot')
+  end
+-->
 <p>
-  <strong>Image:</strong>
-  <%= link_to @post.image.url do %>
-    <%= image_tag(@post.image.url(:screenshot), id: 'image', alt: 'screenshot') %>
+  <% @post_images.each do |image| %>
+    <%= link_to image.image.url do %>
+      <%= image_tag(image.image.url(:screenshot), id: 'image') %>
+    <% end %>
   <% end %>
 </p>
 

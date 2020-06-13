@@ -10,11 +10,13 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post_images = @post.post_images
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @post.post_images.build
   end
 
   # GET /posts/1/edit
@@ -28,6 +30,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        params[:post_images][:image].each do |image|
+          @post.post_images.create(image: image, post_id: @post.id)
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -69,6 +74,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :image)
+      params.require(:post).permit(:title, :image, post_images_attributes: [:id, :post_id, :image])
     end
 end
