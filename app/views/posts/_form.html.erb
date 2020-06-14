@@ -24,7 +24,7 @@
       <div class="dropzone-area">
         <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
           <div class="input_area">
-            <%= image.file_field :image, multiple: true, name: "post_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0, accept: "image/*, video/*" %>
+            <%= image.file_field :image, multiple: true, name: "post_images[image][]", class: "upload-image", id: "upload-image", 'data-image': 0, accept: "image/*, video/*" %>
           </div>
           <p><i class="fa fa-camera fa-2x"></i></p>
         <% end %>

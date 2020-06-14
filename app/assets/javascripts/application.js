@@ -83,7 +83,7 @@ $(document).on("turbolinks:load", function () {
       return;
     }
     var new_image = $(
-      `<input multiple= "multiple" name="post_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`
+      `<input multiple= "multiple" name="post_images[image][]" class="upload-image" id="upload-image" data-image= ${images.length} accept="image/*, video/*" type="file">`
     );
     input_area.prepend(new_image);
   });
