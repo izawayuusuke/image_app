@@ -26,6 +26,7 @@ $(document).on("turbolinks:load", function () {
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
+  // ファイルアップロード時の挙動
   $(document).on("change", 'input[type= "file"].upload-image', function (
     event
   ) {
@@ -86,6 +87,8 @@ $(document).on("turbolinks:load", function () {
     );
     input_area.prepend(new_image);
   });
+
+  // ファイル消去時の挙動
   $(document).on("click", ".delete", function () {
     var target_image = $(this).parent().parent();
     $.each(inputs, function (index, input) {
